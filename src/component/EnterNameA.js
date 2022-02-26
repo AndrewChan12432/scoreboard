@@ -54,8 +54,8 @@ export default function EnterNameA(props) {
                 </label>
               </div>
             </div>
-            <Link to="/enter-name-B">
-              <input type="submit" value="Next" />
+            <Link className='submit' to="/enter-name-B">
+            <input className="w-100 mt-1 text-center " type="submit" value="Next" />
             </Link>
         </form>
       </div>

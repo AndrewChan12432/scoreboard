@@ -48,8 +48,8 @@ export default function EnterNameB(props) {
                   </label>
                 </div>
               </div>
-              <Link  to="/scoreboard">
-                <input type="submit" value="Next" />
+              <Link className='submit'  to="/scoreboard">
+              <input className="w-100 mt-1 text-center " type="submit" value="Next" />
               </Link>
           </form>
         </div>

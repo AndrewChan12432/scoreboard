@@ -13,10 +13,10 @@ export default function EnterTime(props) {
             setTime(e.target.value)
             console.log(time)}
             } />
-          <Link className='submit' to="/enter-name-A">
-            <input className="mt-1 text-center" type="submit" value="Next" />
-          </Link>         
         </form>
+          <Link to="/enter-name-A">
+            <input className="w-100 mt-1 text-center " type="submit" value="Next" />
+          </Link>         
 
       </div>
     </div>

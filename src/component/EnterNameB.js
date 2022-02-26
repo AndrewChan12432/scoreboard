@@ -1,16 +1,13 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 export default function EnterNameB(props) {
     const [nameA , setNameB] = useState("")
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        props.history.push('/scoreboard')
-        console.log(nameA)
-      }
+    console.log(nameA)
     return (
         <div className="enter-name-A d-flex justify-content-center align-items-center mt-3">
         <div className="text-center label-3">
-          <form onSubmit={handleSubmit} className="d-flex flex-column ">
+          <form className="d-flex flex-column ">
           <label>Please enter team B's name and player's number:</label>
               <label>
                   Team B:<input type="text" name="teamA" onChange={(e) => setNameB(e.target.value)} />
@@ -51,7 +48,9 @@ export default function EnterNameB(props) {
                   </label>
                 </div>
               </div>
+              <Link to="/scoreboard">
                 <input type="submit" value="Next" />
+              </Link>
           </form>
         </div>
         </div>

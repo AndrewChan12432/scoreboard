@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function EnterNameA(props) {
   const [nameA , setNameA] = useState([
     {}
-  ])
+  ]);
 
   const setName = (e) => {
     setNameA(e.target.value);

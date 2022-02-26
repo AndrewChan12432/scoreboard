@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function EnterTime(props) {
   const [time, setTime] = useState("")
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   props.history.push('/enter-name-A')
-  //   console.log(time)
-  // }
+
   return (
     <div className="enter-time d-flex justify-content-center align-items-center">
       <div className="text-center p-3">
@@ -17,7 +13,7 @@ export default function EnterTime(props) {
             setTime(e.target.value)
             console.log(time)}
             } />
-          <Link to="/enter-name-A">
+          <Link className='submit' to="/enter-name-A">
             <input className="mt-1 text-center" type="submit" value="Next" />
           </Link>         
         </form>

@@ -10,7 +10,7 @@ import background from "./background.png";
 
 function App() {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <div className="App" style={{
         background: `rgba(0, 0, 0, 0.2) url(${background})`,
         backgroundSize: 'cover',

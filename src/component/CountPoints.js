@@ -60,11 +60,13 @@ export default function CountPoints() {
         }
     }
     function showBtn(e){
+        document.getElementById("parent").classList.add("fixed") 
         e.target.nextSibling.classList.add("transform");
         e.target.nextSibling.children[1].classList.add("display-it")
     }
     function addScore(e) {
         e.target.parentElement.parentElement.classList.remove("transform");
+        document.getElementById("parent").classList.remove("fixed");
         // get point A as a number
         let countPointA = document.querySelector(".pointA");
         let pointAHtml = countPointA.innerHTML;
@@ -124,6 +126,7 @@ export default function CountPoints() {
     }
     const closeBg = (e) => {
         e.target.parentElement.classList.remove("transform");
+        document.getElementById("parent").classList.remove("fixed");
     }
     
     return (
@@ -179,6 +182,23 @@ export default function CountPoints() {
                 </div>
                 <div className="players-score-B d-flex">
                     {players.map((players, index) => {
+                        if(players === "10" ||players === "11" ||players === "12"){
+                        return(
+                            <div className="player-div" key={index}>
+                                <p>{players}</p>
+                                <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
+                                <div className="no-display">
+                                    <div className="button-add-special">
+                                    <button onClick={addScore}>+3</button>
+                                    <button onClick={addScore}>+2</button>
+                                    <button onClick={addScore}>+1</button>
+                                    <button onClick={addScore}>-1</button>
+                                    </div>
+                                    <div className="bground" onClick={closeBg}></div>
+                                </div>
+                                <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
+                            </div>
+                        )}else{
                         return(
                             <div className="player-div" key={index}>
                                 <p>{players}</p>
@@ -194,7 +214,7 @@ export default function CountPoints() {
                                 </div>
                                 <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
                             </div>
-                        )                       
+                        )}                      
                         })}
                 </div>
             </div>

@@ -310,7 +310,7 @@ const Sroceboard = () =>{
     });
     
     return(
-        <div className="score">
+        <div className="score" id="parent">
             <Timer />
             <CountPoints />
         </div>

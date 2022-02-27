@@ -40,6 +40,9 @@ a:hover {
   transform: translate(-50%, 0%);
   z-index: 1;
 }
+.fixed{
+  position: fixed;
+}
 .quater_change_style{
   cursor: pointer;
 }
@@ -745,6 +748,13 @@ top:25px;
   .button-add{
     position: absolute;
     z-index:1000;
+    display: flex;
+  }
+  .button-add-special{
+    position: absolute;
+    right: 0;
+    z-index:1000;
+    display: flex;
   }
   .button-special{
     width: 110px;
@@ -1045,6 +1055,12 @@ top: 30px;
 }
 .foul-counts{
   font-size: 25px;
+}
+.button-add-special{
+  position: absolute;
+  right: auto;
+  z-index:1000;
+  display: flex;
 }
 .teamA-fouls{
   display: flex;

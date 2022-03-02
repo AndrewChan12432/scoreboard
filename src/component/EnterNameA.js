@@ -16,7 +16,7 @@ export default function EnterNameA(props) {
         <form className="d-flex flex-column ">
         <label>Please enter team A's name and player's number:</label>
             <label>
-                Team A:<input type="text" name="teamA" onChange={setName} />
+                Team A:<input type="text" name="teamA" maxLength="20" onChange={setName} />
             </label>
             <div className="d-flex">
               <div className="d-flex flex-column">

@@ -60,9 +60,9 @@ export default function CountPoints() {
         }
     }
     function showBtn(e){
-        document.getElementById("parent").classList.add("fixed") 
         e.target.nextSibling.classList.add("transform");
-        e.target.nextSibling.children[1].classList.add("display-it")
+        // document.getElementById("parent").classList.add("fixed") 
+        // e.target.nextSibling.children[1].classList.add("display-it")
     }
     function addScore(e) {
         e.target.parentElement.parentElement.classList.remove("transform");
@@ -170,7 +170,7 @@ export default function CountPoints() {
                                     </div>
                                     <div className="bground" onClick={closeBg}></div>
                                 </div>
-                                <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
+                                <button className="foulBox" id="foulP1" onClick={checkFoul}>0</button>
                             </div>
                         )                       
                     })}

@@ -15,7 +15,7 @@ const Sroceboard = () =>{
 
     // Map digits to their names (this will be an array)
     let digit_to_name = 'nine eight seven six five four three two one zero'.split(' ');
-    let digit_to_quater = 'FIRST SECOND THIRD FOURT OT'.split(' ');
+    let digit_to_quater = 'FIRST SECOND THIRD FOURTH OT'.split(' ');
 
     // This object will hold the digit elements
     let digits = {};
@@ -278,6 +278,17 @@ const Sroceboard = () =>{
     //     }
 
     // });
+    $('#timeout').click(function () {
+        if (myTimeterval === -1) {
+            myButton.html("Resume");
+            clearInterval(myInterval);
+            myInterval = -1;
+        } else {
+            myTimeButton.html("Timeout");
+            myTimeterval = -1;
+        }
+
+    });
     $('#quater_change').click(function () {
         varQuater++
         myQuater.html(digit_to_quater[varQuater]);

@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function CountPoints() {
     const players = ["1", "2", "3","4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10" ,"11" ,"12"];
-    console.log(players)
 
     const cancelAds =()=> {
         document.getElementById("ads").style.display = "none" 

@@ -8,6 +8,7 @@ export default function EnterNameA(props) {
 
   const setName = (e) => {
     setNameA(e.target.value);
+    localStorage.setItem(e.target.value, nameA)
     console.log(nameA)
   }
   return (

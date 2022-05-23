@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function CountPoints() {
     const players = ["1", "2", "3","4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10" ,"11" ,"12"];
+    const nameA = JSON.parse(localStorage.getItem('teamA'))
+    const nameB = JSON.parse(localStorage.getItem('teamB'))
+    // const player1A =JSON.parse(localStorage.getItem('player1A'))
 
     const cancelAds =()=> {
         document.getElementById("ads").style.display = "none" 
@@ -16,7 +19,7 @@ export default function CountPoints() {
     }
     const resetFouls = (e) =>{
         e.target.innerHTML = 0;
-        e.target.classList.remove("glow-red", "glow-blue")
+        e.target.classList.remove("glow-red", "glow-blue", "preglow-red", "preglow-blue")
     }
     
     function checkFoul(e){
@@ -31,6 +34,9 @@ export default function CountPoints() {
        getNum++;
        getId.innerHTML = getNum;
        }
+       if(getNum === 4){
+          getId.classList.add("preglow-red")
+       }
        if(getNum === 5){
           getId.classList.add("glow-red")
        }
@@ -41,6 +47,9 @@ export default function CountPoints() {
        if(getNum < 5){
            getNum++;
            getId.innerHTML = getNum;
+       }
+       if(getNum === 4) {
+        getId.classList.add("preglow-blue")
        }
        if(getNum === 5) {
         getId.classList.add("glow-blue")
@@ -127,6 +136,9 @@ export default function CountPoints() {
         e.target.parentElement.classList.remove("transform");
         document.getElementById("parent").classList.remove("fixed");
     }
+    window.onbeforeunload = function () {
+        return 'Are you sure? Your work will be lost. ';
+    };
     
     return (
         <div className="count-points">
@@ -134,22 +146,20 @@ export default function CountPoints() {
                     <div className="team-fouls d-flex justify-content-around">
                         <div className='count_score d-flex flex-column align-items-center'>
                             <div className="teamA">
-                                <h5>teamA</h5>
+                                <h5>{nameA}</h5>
                                 <div className="pointA">0</div>
                             </div>
-                            <div className="arrow-left" onClick={changeColorLeft}></div>
                         </div>
                         <div className="foul-counts d-flex align-items-center">
-                           <div className="teamA-fouls" onClick={resetFouls}>0</div>
-                           <p>Team Foul</p>
-                           <div className="teamB-fouls" onClick={resetFouls}>0</div>
+                            <div className="teamA-fouls" onClick={resetFouls}>0</div>
+                            <p>Team Foul</p>
+                            <div className="teamB-fouls" onClick={resetFouls}>0</div>
                         </div>
                         <div className='d-flex flex-column align-items-center'>
                                 <div className="teamB">
-                                <h5>teamB</h5>
+                                <h5>{nameB}</h5>
                                 <div className="pointB">0</div>
                             </div>
-                            <div className="arrow-right" onClick={changeColorRight}></div>
                         </div>
                     </div>
             </div>
@@ -174,6 +184,8 @@ export default function CountPoints() {
                         )                       
                     })}
                 </div>
+                <div className="arrow-left" onClick={changeColorLeft}></div>
+                <div className="arrow-right" onClick={changeColorRight}></div>
                 <div className="players-score">
                     <p>players</p>
                     <p>scores</p>
@@ -220,14 +232,7 @@ export default function CountPoints() {
             <div className='ads_settings no-display' id="ads">
                 <div className='bg_opacity' onClick={cancelAds}></div>
                 <div className='iframe_settins'>
-                    <p>Timeout</p>
-                    <iframe  src="https://www.youtube.com/embed/IdJBYyNsQd0" 
-                             width="560" height="315"  
-                             title="YouTube video player" 
-                             frameBorder="0" 
-                             allow="autoplay; encrypted-media;" 
-                             allowFullScreen 
-                    />
+                    <p>Timeout</p>   
                 </div>
             </div>
         </div>

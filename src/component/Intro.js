@@ -7,7 +7,7 @@ export default function Intro() {
             <div className="text-center p-3">
                 <h1>JOSDREW's Scoreboard</h1>
                 <p>Count point and time for basketball match</p>
-                <Link to="enter-time">
+                <Link to="/enter-name-A">
                     <h1>START</h1>
                 </Link>
             </div>

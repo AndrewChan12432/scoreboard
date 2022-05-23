@@ -615,8 +615,7 @@ top:25px;
 }
 .arrow-left{
   position: absolute;
-  bottom: 0;
-  transform: translateY(-25%);
+  transform: translate(-175%, -150%);
   cursor: pointer;
   border-top: 10px solid transparent;
   border-right: 20px solid ;
@@ -624,8 +623,7 @@ top:25px;
 }
 .arrow-right{
   position: absolute;
-  bottom: 0;
-  transform: translateY(-25%);
+  transform: translate(175%, -150%);
   cursor: pointer;
   color: rgba(0,0,0,.6);
   border-top: 10px solid transparent;
@@ -634,14 +632,18 @@ top:25px;
 }
 .teamA-fouls{
   padding: 0px 8px; 
-  background-color: #900C3F;
+  /* background-color: #900C3F; */
+  color: #000;
+  background-color:aliceblue;
   text-align: center;
   min-width: 24px;
   cursor: pointer;
 }
 .teamB-fouls{
   padding: 0px 8px;
-  background-color: #2F7FBF;
+  /* background-color: #2F7FBF; */
+  color: #000;
+  background-color: aliceblue;
   text-align: center;
   min-width: 24px;
   cursor: pointer;
@@ -739,7 +741,7 @@ top:25px;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.3);
   z-index: 500;
   cursor: pointer;
   }
@@ -905,7 +907,11 @@ top:25px;
   .glow-red {
     background-color: #900C3F;
     box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
-    animation: pulse-red 2s linear 1s infinite;
+    animation: pulse-red 1s linear 1s infinite;
+  }
+  .preglow-red {
+    box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
+    animation: pulse-red 1s linear 1s infinite;
   }
   @keyframes pulse-blue {
     0% { box-shadow:0 0 8px #ea4c89, inset 0 0 8px #ea4c89; }
@@ -916,7 +922,11 @@ top:25px;
   .glow-blue {
     background-color: #2F7FBF;
     box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
-    animation: pulse-blue 2s linear 1s infinite;
+    animation: pulse-blue 1s linear 1s infinite;
+  }
+  .preglow-blue {
+    box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
+    animation: pulse-blue 1s linear 1s infinite;
   }
   @keyframes fade-in {
     0% {opacity: 0;}
@@ -1090,13 +1100,11 @@ top: 30px;
   margin: 0 20px;
 }
 .arrow-left{
-  bottom: 0;
   border-top: 15px solid transparent;
   border-right: 30px solid ;
   border-bottom: 15px solid transparent;
 }
 .arrow-right{
-  bottom: 0;
   border-top: 15px solid transparent;
   border-left: 30px solid ;
   border-bottom: 15px solid transparent;

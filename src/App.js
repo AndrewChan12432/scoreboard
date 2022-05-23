@@ -12,7 +12,7 @@ function App() {
   return (
     <HashRouter>
       <div className="App" style={{
-        background: `rgba(0, 0, 0, 0.2) url(${background})`,
+        background: `rgba(0, 0, 0, 0.4) url(${background})`,
         backgroundSize: 'cover',
         width: '100vw',
         height: '100v',

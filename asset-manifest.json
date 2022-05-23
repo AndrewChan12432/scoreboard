@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/scoreboard/static/css/main.f5c1627f.css",
-    "main.js": "/scoreboard/static/js/main.ec16eb5c.js",
+    "main.js": "/scoreboard/static/js/main.b9902b07.js",
     "static/media/background.png": "/scoreboard/static/media/background.b23e81d8ccaf995c8ef9.png",
+    "static/media/background.jpg": "/scoreboard/static/media/background.d34b4ce36a1ae3091e82.jpg",
     "static/media/buzzerSound.mpeg": "/scoreboard/static/media/buzzerSound.583ab3f1d48a4126753e.mpeg",
     "index.html": "/scoreboard/index.html",
     "main.f5c1627f.css.map": "/scoreboard/static/css/main.f5c1627f.css.map",
-    "main.ec16eb5c.js.map": "/scoreboard/static/js/main.ec16eb5c.js.map"
+    "main.b9902b07.js.map": "/scoreboard/static/js/main.b9902b07.js.map"
   },
   "entrypoints": [
     "static/css/main.f5c1627f.css",
-    "static/js/main.ec16eb5c.js"
+    "static/js/main.b9902b07.js"
   ]
 }

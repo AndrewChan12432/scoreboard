@@ -17,7 +17,7 @@ a:hover {
 }
 
 .App {
-  background:rgba(0, 0, 0, 0.9) url(/public/background.png);
+  background:rgba(0, 0, 0, 0.4) url(/public/bgimage.jpg);
   background-size: cover;
   background-blend-mode: darken;
   width: 100vw;

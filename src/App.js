@@ -6,20 +6,22 @@ import EnterNameA from "./component/EnterNameA";
 import EnterNameB from "./component/EnterNameB";
 import Scoreboard from './component/Scoreboard'
 import PageNotFound from "./component/PageNotFound";
-import background from "./background.png";
+// import background from "../public/bgimage";
 
 function App() {
   return (
     <HashRouter>
-      <div className="App" style={{
-        background: `rgba(0, 0, 0, 0.4) url(${background})`,
-        backgroundSize: 'cover',
-        width: '100vw',
-        height: '100v',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+      <div className="App" 
+        // style={{
+        //   background: `rgba(0, 0, 0, 0.4) url(${background})`,
+        //   backgroundSize: 'cover',
+        //   width: '100vw',
+        //   height: '100v',
+        //   display: 'flex',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        // }}
+        >
         <Routes>
           <Route exact path="/" element={<Intro />} />
           <Route path="/enter-time" element={<EnterTime />} />

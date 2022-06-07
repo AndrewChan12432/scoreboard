@@ -1,11 +1,15 @@
 import React from 'react'
 
 export default function CountPoints() {
-    const players = ["1", "2", "3","4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10" ,"11" ,"12"];
+    // const players = ["1", "2", "3","4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10" ,"11" ,"12"];
     const nameA = JSON.parse(localStorage.getItem('teamA'))
     const nameB = JSON.parse(localStorage.getItem('teamB'))
-    // const player1A =JSON.parse(localStorage.getItem('player1A'))
-
+    let playersA = [];
+    let playersB = [];
+    for(let i = 1; i < 13; i++){
+        playersA.push(JSON.parse(localStorage.getItem(`player${i}A`)))
+        playersB.push(JSON.parse(localStorage.getItem(`player${i}B`)))
+    }
     const cancelAds =()=> {
         document.getElementById("ads").style.display = "none" 
         }
@@ -165,10 +169,10 @@ export default function CountPoints() {
             </div>
             <div className="player-score d-flex justify-content-center">
                 <div className="players-score-A d-flex">
-                    {players.map((players, index) => {
+                    {playersA.map((playersA, index) => {
                         return(
                             <div className="player-div" key={index}>
-                                <p>{players}</p>
+                                <p>{playersA}</p>
                                 <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
                                 <div className="no-display">
                                     <div className="button-add">
@@ -192,11 +196,11 @@ export default function CountPoints() {
                     <p>fouls</p>
                 </div>
                 <div className="players-score-B d-flex">
-                    {players.map((players, index) => {
-                        if(players === "10" ||players === "11" ||players === "12"){
+                    {playersB.map((playersB, index) => {
+                        if(playersB === "10" ||playersB === "11" ||playersB === "12"){
                         return(
                             <div className="player-div" key={index}>
-                                <p>{players}</p>
+                                <p>{playersB}</p>
                                 <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
                                 <div className="no-display">
                                     <div className="button-add-special">
@@ -212,7 +216,7 @@ export default function CountPoints() {
                         )}else{
                         return(
                             <div className="player-div" key={index}>
-                                <p>{players}</p>
+                                <p>{playersB}</p>
                                 <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
                                 <div className="no-display">
                                     <div className="button-add">

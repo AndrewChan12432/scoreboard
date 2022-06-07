@@ -6,6 +6,12 @@ import EnterNameA from "./component/EnterNameA";
 import EnterNameB from "./component/EnterNameB";
 import Scoreboard from './component/Scoreboard'
 import PageNotFound from "./component/PageNotFound";
+import ban1 from "./pic1.png"
+import ban2 from "./pic2.png"
+import ban3 from "./pic3.png"
+import ban4 from "./pic4.png"
+import ban5 from "./pic5.png"
+import ban6 from "./pic 6.png"
 // import background from "../public/bgimage";
 
 function App() {
@@ -22,6 +28,15 @@ function App() {
         //   alignItems: 'center',
         // }}
         >
+      <div className="banner">
+             <img src={ban5} alt="chinese" />
+             <img src={ban2} alt="bina-harapan" />
+             <img src={ban1} alt="vivian" />
+             <p>Vivian Wong Open Basketball Friendship Competition</p>
+             <img src={ban4} alt="red" />
+             <img src={ban3} alt="harimau" />
+             <img src={ban6} alt="circle" />
+      </div>
         <Routes>
           <Route exact path="/" element={<Intro />} />
           <Route path="/enter-time" element={<EnterTime />} />

@@ -7,6 +7,13 @@ body {
   letter-spacing: .5px;
 }
 
+.banner{
+  display: none
+}
+img{
+  width: 55px;
+  height: 40px;
+}
 a{
   color: whitesmoke;
   text-decoration: none;
@@ -26,6 +33,11 @@ a:hover {
   justify-content: center;
   align-items: center;
   z-index: 0;
+}
+
+.enter-name-A {
+  font-size: 15px;
+  animation: fade-in 1s ;
 }
 
 /* .intro, .enter-time, .enter-name-A, .enter-name-B, .page-not-found {
@@ -932,6 +944,10 @@ top:25px;
     0% {opacity: 0;}
     100% { opacity: 0.9;}
   }
+  @keyframes scroll-down {
+    0% {transform: b;}
+    100% { transform: 0.9;}
+  }
 
   /* RESPONSIVE */
 @media only screen and (min-width: 900px) {
@@ -1039,6 +1055,29 @@ top: 30px;
 }
 .scoreboard{
   top: 10%;
+}
+.banner{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #000;
+  font-size: 30px;
+}
+.banner p{
+   margin: 0;
+}
+img{
+  width: 100px;
+  height: 50px;
+}
+.enter-name-A {
+  font-size: 30px;
+  animation: fade-in 1s ;
 }
 
 .player-score{

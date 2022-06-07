@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 export default function Intro() {
     return (
         <div className="intro d-flex justify-content-center align-items-center">
@@ -10,6 +11,10 @@ export default function Intro() {
                 <Link to="/enter-name-A">
                     <h1>START</h1>
                 </Link>
+                <form>
+                    <input type="password" id="fname" placeholder='password' ></input>
+                    <input type="submit" value="submit"></input>
+                </form>
             </div>
         </div>
     )

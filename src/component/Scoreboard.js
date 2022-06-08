@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import $ from 'jquery';
-import Timer from './Timer';
 import CountPoints from './CountPoints'
 
 const Sroceboard = () =>{
@@ -322,7 +321,6 @@ const Sroceboard = () =>{
     
     return(
         <div className="score" id="parent">
-            <Timer />
             <CountPoints />
         </div>
     )

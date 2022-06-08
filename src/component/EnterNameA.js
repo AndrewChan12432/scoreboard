@@ -22,33 +22,35 @@ export default function EnterNameA(props) {
             </label>
             <div className="d-flex">
               <div className="d-flex flex-column">
-              {playerRight.map((players, index) => {
-                        return(
-                        <label key={index}>
-                          Player {players}:
-                          <input type="text" 
-                                 name="player"
-                                 maxLength="2"
-                                 placeholder={localStorage.getItem(`player${players}A`)}
-                                 onChange={(e) => localStorage.setItem(`player${players}A`, JSON.stringify(e.target.value)) }
-                          />
-                        </label>
-                        )                       
-               })}
+                {playerRight.map((players, index) => {
+                  return(
+                    <label key={index}>
+                      Player {players}:
+                      <input type="text"
+                             pattern="\d*" 
+                             name="player"
+                             maxLength="2"
+                             placeholder={localStorage.getItem(`player${players}A`)}
+                             onChange={(e) => localStorage.setItem(`player${players}A`, JSON.stringify(e.target.value)) }
+                      />
+                    </label>
+                  )                       
+                })}
               </div>
               <div className="d-flex flex-column ml-3">
                 {playerLeft.map((players, index) => {
-                          return(
-                          <label key={index}>
-                            Player {players}:
-                            <input type="text" 
-                                  name="player"
-                                  maxLength="2"
-                                  placeholder={localStorage.getItem(`player${players}A`)}
-                                  onChange={(e) => localStorage.setItem(`player${players}A`, JSON.stringify(e.target.value)) }
-                            />
-                          </label>
-                          )                       
+                  return(
+                    <label key={index}>
+                      Player {players}:
+                      <input type="text"
+                             pattern="\d*" 
+                             name="player"
+                             maxLength="2"
+                             placeholder={localStorage.getItem(`player${players}A`)}
+                             onChange={(e) => localStorage.setItem(`player${players}A`, JSON.stringify(e.target.value)) }
+                      />
+                    </label>
+                  )                      
                 })}
               </div>
             </div>

@@ -3,7 +3,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   color: whitesmoke;
-  font-family: "Staatliches", cursive;
+
+font-family: 'Nuosu SIL', serif;
   letter-spacing: .5px;
 }
 
@@ -30,8 +31,8 @@ a:hover {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
   z-index: 0;
 }
 
@@ -46,11 +47,10 @@ a:hover {
 
 /* clock */
 .scoreboard{
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translate(-50%, 0%);
   z-index: 1;
+}
+.score {
+  margin-top: 15px;
 }
 .fixed{
   position: fixed;
@@ -567,7 +567,6 @@ top:25px;
 /* Count-points */
 .count-points{
   width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -577,17 +576,10 @@ top:25px;
   margin: 15px;
   font-size: 17px;
 }
-.count_score{
-  margin-right: 20%;
-}
 .teamA{
-  position: relative;
-  left: 6%;
   text-align: center;
 }
 .teamB{
-  position: relative;
-  right: 6%;
   text-align: center;
 }
 .teamA div{
@@ -618,12 +610,10 @@ top:25px;
   background-color: rgba(0,0,0,.5);
 } */
 .team-fouls{
-  position: relative;
-  height: 120%;
+  justify-content: space-evenly;
 }
-.foul-counts{
-  position: absolute;
-  bottom: 0;
+.team-foul{
+  justify-content: space-between;
 }
 .arrow-left{
   position: absolute;
@@ -644,21 +634,23 @@ top:25px;
 }
 .teamA-fouls{
   padding: 0px 8px; 
-  /* background-color: #900C3F; */
-  color: #000;
-  background-color:aliceblue;
+  background-color: #900C3F;
+  color: white;
   text-align: center;
   min-width: 24px;
   cursor: pointer;
 }
 .teamB-fouls{
   padding: 0px 8px;
-  /* background-color: #2F7FBF; */
-  color: #000;
-  background-color: aliceblue;
+  background-color: #2F7FBF;
+  color: white;
   text-align: center;
   min-width: 24px;
   cursor: pointer;
+}
+.foul-counts{
+  justify-content: space-evenly;
+  margin-top: 10px;
 }
 .change_24{
   margin: 0 3px;
@@ -799,6 +791,32 @@ top:25px;
     animation-name: fade-in;
     animation-duration: 1s;
 
+  }
+  .pivot{
+    width:30px;
+    height:30px;
+    background-color: rgba(255,0,0,0.8);
+    border-radius: 50%;
+    /* left: calc(50% - 15px);
+    top: calc(50% - 15px); */
+  }
+  
+  .bg-circle1, .bg-circle2{
+    width:30px;
+    height:30px;
+    background-color: rgba(255,0,0,0.5);
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .bg-circle1 {
+    animation: bgScaleAnimation 1.5s ease-out infinite, bgFadeAnimation 1.5s ease-in infinite;
+    animation-delay: 0.4s;
+  }
+  
+  .bg-circle2 {
+    animation: bgScaleAnimation2 1.5s ease-in-out infinite, bgFadeAnimation 1.5s ease-in infinite;
+    
   }
 
 /* alert-portrait */
@@ -948,6 +966,29 @@ top:25px;
     0% {transform: b;}
     100% { transform: 0.9;}
   }
+  @keyframes bgScaleAnimation {
+    0% {transform: scale(1)}
+    70% {transform: scale(1.6)}
+    100% {transform: scale(1.6)}
+  }
+  
+  @keyframes bgFadeAnimation {
+    0% {background-color: rgba(255,0,0,0.5)}
+    70% {background-color: rgba(255,0,0,0)}
+    100% {background-color: rgba(255,0,0,0)}
+  }
+  
+  @keyframes bgScaleAnimation2 {
+    0% {transform: scale(1)}
+    70% {transform: scale(2)}
+    100% {transform: scale(2)}
+  }
+  
+  @keyframes bgFadeAnimation2 {
+    0% {background-color: rgba(255,0,0,0.5)}
+    70% {background-color: rgba(255,0,0,0)}
+    100% {background-color: rgba(255,0,0,0)}
+  }
 
   /* RESPONSIVE */
 @media only screen and (min-width: 900px) {
@@ -1053,20 +1094,19 @@ top:10px;
 #clock_1 .digits_1 div.dots:after{
 top: 30px;
 }
-.scoreboard{
+/* .scoreboard{
   top: 10%;
-}
+} */
 .banner{
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  position: fixed;
-  top: 0;
-  height: 60px;
   width: 100%;
   background-color: #000;
   font-size: 30px;
+  border-bottom:#dbe4e6 solid 1px;
+
 }
 .banner p{
    margin: 0;
@@ -1074,6 +1114,7 @@ top: 30px;
 img{
   width: 100px;
   height: 50px;
+  object-fit: contain;
 }
 .enter-name-A {
   font-size: 30px;
@@ -1101,8 +1142,11 @@ img{
 .player-div{
   margin: 0 5px;
 }
+
 .foul-counts{
   font-size: 25px;
+  justify-content: space-evenly;
+  margin-top: 10px;
 }
 .button-add-special{
   position: absolute;
@@ -1119,7 +1163,7 @@ img{
   height: 35px;
 
 }
-.teamB-fouls{
+.teamB-fouls {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1127,13 +1171,22 @@ img{
   width: 35px;
   height: 35px;
 }
-.teamA div{
-  font-size: 70px;
-  padding: 50px 85px;
+.count_score {
+  width: 270px;
+}
+.teamA {
+  width: 100%;
+}
+.teamB {
+  width: 100%;
+}
+.teamA div {
+  font-size: 150px;
+  padding: 0px;
 }
 .teamB div{
-  font-size: 70px;
-  padding: 50px 85px;
+  font-size: 150px;
+  padding: 0px;
 }
 .foul-counts p{
   margin: 0 20px;
@@ -1176,13 +1229,8 @@ img{
   padding: 0;
   margin: 5px 0px;
 }
-.foul-counts{
-  position: absolute;
-  bottom: 0;
-}
 .team-fouls{
-  position: relative;
-  height: 130%;
+  margin-top: 30px;
 }
 #myReset{
   font-size: 25px;

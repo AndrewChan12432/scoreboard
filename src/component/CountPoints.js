@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Timer from './Timer';
 
 export default function CountPoints() {
     // const players = ["1", "2", "3","4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10" ,"11" ,"12"];
@@ -147,25 +148,49 @@ export default function CountPoints() {
     return (
         <div className="count-points">
             <div className="black">
-                    <div className="team-fouls d-flex justify-content-around">
-                        <div className='count_score d-flex flex-column align-items-center'>
+                    <div className="team-fouls d-flex">
+                        <div className='count_score d-flex'>
                             <div className="teamA">
                                 <h5>{nameA}</h5>
                                 <div className="pointA">0</div>
                             </div>
                         </div>
-                        <div className="foul-counts d-flex align-items-center">
-                            <div className="teamA-fouls" onClick={resetFouls}>0</div>
-                            <p>Team Foul</p>
-                            <div className="teamB-fouls" onClick={resetFouls}>0</div>
-                        </div>
-                        <div className='d-flex flex-column align-items-center'>
+                        <Timer />
+                        <div className='count_score d-flex'>
                                 <div className="teamB">
                                 <h5>{nameB}</h5>
                                 <div className="pointB">0</div>
                             </div>
                         </div>
                     </div>
+            </div>
+            <div className="foul-counts d-flex align-items-center">
+                <div class='pivot'>
+                    <div class='bg-circle1'></div>
+                    <div class='bg-circle2'></div>
+                </div>
+                <div className='d-flex team-foul'>
+                    <div className="teamA-fouls" onClick={resetFouls}>0</div>
+                    <p>Team Foul</p>
+                    <div className="teamB-fouls" onClick={resetFouls}>0</div>
+                </div>
+                <div class='pivot'>
+                    <div class='bg-circle1'></div>
+                    <div class='bg-circle2'></div>
+                </div>
+            </div>
+            <div className='d-flex justify-content-center'>
+                <div>
+
+                </div>
+                <div className='d-flex team-foul'>
+                    <div className="arrow-left" onClick={changeColorLeft}></div>
+                    <div>Possesion Arrow</div>
+                    <div className="arrow-right" onClick={changeColorRight}></div>
+                </div>
+                <div>
+
+                </div>
             </div>
             <div className="player-score d-flex justify-content-center">
                 <div className="players-score-A d-flex">
@@ -188,8 +213,6 @@ export default function CountPoints() {
                         )                       
                     })}
                 </div>
-                <div className="arrow-left" onClick={changeColorLeft}></div>
-                <div className="arrow-right" onClick={changeColorRight}></div>
                 <div className="players-score">
                     <p>players</p>
                     <p>scores</p>

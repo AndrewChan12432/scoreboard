@@ -50,7 +50,7 @@ a:hover {
   z-index: 1;
 }
 .score {
-  margin-top: 15px;
+  margin-top: 5px;
 }
 .fixed{
   position: fixed;
@@ -583,20 +583,24 @@ top:25px;
   text-align: center;
 }
 .teamA div{
+  display: flex;
+  justify-content: center;
   font-size: 60px;
   padding: 30px 60px;
   background-color: #900C3F;
   border-radius: 2px;
   margin: 0px;
-  min-width: 150px;
+  max-width: 150px;
 }
 .teamB div{
+  display: flex;
+  justify-content: center;
   font-size: 60px;
   padding: 30px 60px;
   background-color: #2F7FBF;
   border-radius: 2px;
   margin: 0px;
-  min-width: 150px;
+  max-width: 150px;
 }
 .team-fouls p{
   margin: 5px 0;
@@ -604,7 +608,7 @@ top:25px;
   text-align: center;
 }
 .players-score p{
-  padding: 10px;
+  padding: 15px;
 }
 /* .black{
   background-color: rgba(0,0,0,.5);
@@ -614,18 +618,48 @@ top:25px;
 }
 .team-foul{
   justify-content: space-between;
+  width: 160px;
+  height: 30px;
+}
+.timeout-col {
+  padding: 2px 5px;
+  background-color: #fafafa;
+  align-items: center;
+}
+.timeout-table {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+.timeout-table p {
+  font-size: 9px;
+  margin: 0 2px;
+}
+.timeout-table input {
+  width: 25px;
+  height: 25px;
+}
+.team-timeout{
+  display: flex;
+  color: #000;
+  padding: 5px;
+  background-color: #fafafa;
+  border-radius: 5px;
+}
+.possesion-arrow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  width: 160px;
 }
 .arrow-left{
-  position: absolute;
-  transform: translate(-175%, -150%);
   cursor: pointer;
   border-top: 10px solid transparent;
   border-right: 20px solid ;
   border-bottom: 10px solid transparent;
 }
 .arrow-right{
-  position: absolute;
-  transform: translate(175%, -150%);
   cursor: pointer;
   color: rgba(0,0,0,.6);
   border-top: 10px solid transparent;
@@ -734,7 +768,7 @@ top:25px;
 }
 .players-score p:nth-child(3){
   background-color: #ffbd59;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .transform{
   display: block;
@@ -795,29 +829,29 @@ top:25px;
   .pivot{
     width:30px;
     height:30px;
-    background-color: rgba(255,0,0,0.8);
+    background-color: rgba(210, 215, 211, 0.3);
     border-radius: 50%;
     /* left: calc(50% - 15px);
     top: calc(50% - 15px); */
   }
+  .turn-red{
+    background-color: rgba(255,0,0,0.8);
+  }
   
-  .bg-circle1, .bg-circle2{
+  .bg-circle1 {
     width:30px;
     height:30px;
     background-color: rgba(255,0,0,0.5);
     border-radius: 50%;
     position: absolute;
+    z-index: 0;
   }
   
   .bg-circle1 {
-    animation: bgScaleAnimation 1.5s ease-out infinite, bgFadeAnimation 1.5s ease-in infinite;
-    animation-delay: 0.4s;
+    animation: bgScaleAnimation 1s ease-out infinite, bgFadeAnimation 1s ease-in infinite;
+    animation-delay: 0.1s;
   }
-  
-  .bg-circle2 {
-    animation: bgScaleAnimation2 1.5s ease-in-out infinite, bgFadeAnimation 1.5s ease-in infinite;
-    
-  }
+
 
 /* alert-portrait */
 @media only screen and (orientation: portrait) {
@@ -1109,7 +1143,7 @@ top: 30px;
 
 }
 .banner p{
-   margin: 0;
+   margin: 15px 0;
 }
 img{
   width: 100px;
@@ -1121,23 +1155,27 @@ img{
   animation: fade-in 1s ;
 }
 
-.player-score{
-  font-size: 20px;
+.players-score{
+  font-size: 25px;
+  width: 150px;
 }
 .player-div p{
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
 }
 .team1Score{
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
 }
 .foulBox{
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
 }
 .player-score p{
   padding: 3px 15px;
+}
+.player-score {
+  font-size: 20px;
 }
 .player-div{
   margin: 0 5px;
@@ -1150,7 +1188,7 @@ img{
 }
 .button-add-special{
   position: absolute;
-  right: auto;
+  right: 0;
   z-index:1000;
   display: flex;
 }
@@ -1182,14 +1220,21 @@ img{
 }
 .teamA div {
   font-size: 150px;
+  height: 260px;
   padding: 0px;
+  max-width: none;
 }
 .teamB div{
   font-size: 150px;
+  height: 260px;
   padding: 0px;
+  max-width: none;
 }
 .foul-counts p{
   margin: 0 20px;
+}
+.foul-counts {
+  margin-top: 20px;
 }
 .arrow-left{
   border-top: 15px solid transparent;
@@ -1200,6 +1245,17 @@ img{
   border-top: 15px solid transparent;
   border-left: 30px solid ;
   border-bottom: 15px solid transparent;
+}
+.timeout-table {
+  font-size: 25px;
+}
+.timeout-table p {
+  font-size: 15px;
+  margin-right: 5px;
+}
+.timeout-table input {
+  width: 50px;
+  height: 50px;
 }
 .position_quater {
   width: 260px;
@@ -1230,7 +1286,15 @@ img{
   margin: 5px 0px;
 }
 .team-fouls{
-  margin-top: 30px;
+  margin-top: 15px;
+}
+.team-foul{
+  width: 270px;
+  height: 30px;
+}
+.possesion-arrow{
+  font-size: 25px;
+  width: 270px;
 }
 #myReset{
   font-size: 25px;

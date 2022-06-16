@@ -2,7 +2,6 @@ import React from 'react';
 import Timer from './Timer';
 
 export default function CountPoints() {
-    // const players = ["1", "2", "3","4" ,"5" ,"6" ,"7" ,"8" ,"9" ,"10" ,"11" ,"12"];
     const nameA = JSON.parse(localStorage.getItem('teamA'))
     const nameB = JSON.parse(localStorage.getItem('teamB'))
     let playersA = [];
@@ -39,9 +38,6 @@ export default function CountPoints() {
        getNum++;
        getId.innerHTML = getNum;
        }
-       if(getNum === 4){
-          getId.classList.add("preglow-red")
-       }
        if(getNum === 5){
           getId.classList.add("glow-red")
        }
@@ -52,9 +48,6 @@ export default function CountPoints() {
        if(getNum < 5){
            getNum++;
            getId.innerHTML = getNum;
-       }
-       if(getNum === 4) {
-        getId.classList.add("preglow-blue")
        }
        if(getNum === 5) {
         getId.classList.add("glow-blue")
@@ -144,6 +137,28 @@ export default function CountPoints() {
     window.onbeforeunload = function () {
         return 'Are you sure? Your work will be lost. ';
     };
+    const lightAlarm1 = () =>{
+        let pivot1 = document.getElementById("pivot1")
+        let bgPivot1 = document.getElementById("bg-pivot1")
+        if(pivot1.classList.contains("turn-red")){
+            pivot1.classList.remove("turn-red");
+            bgPivot1.classList.remove("bg-circle1")
+        }else{
+            pivot1.classList.add("turn-red");
+            bgPivot1.classList.add("bg-circle1")
+        }
+    }
+    const lightAlarm2 = () =>{
+        let pivot2 = document.getElementById("pivot2")
+        let bgPivot2 = document.getElementById("bg-pivot2")
+        if(pivot2.classList.contains("turn-red")){
+            pivot2.classList.remove("turn-red");
+            bgPivot2.classList.remove("bg-circle1")
+        }else{
+            pivot2.classList.add("turn-red");
+            bgPivot2.classList.add("bg-circle1")
+        }
+    }
     
     return (
         <div className="count-points">
@@ -165,31 +180,83 @@ export default function CountPoints() {
                     </div>
             </div>
             <div className="foul-counts d-flex align-items-center">
-                <div class='pivot'>
-                    <div class='bg-circle1'></div>
-                    <div class='bg-circle2'></div>
+                <div id="pivot1" className='pivot' onClick={lightAlarm1}>
+                    <div id="bg-pivot1" className=''></div>
                 </div>
                 <div className='d-flex team-foul'>
                     <div className="teamA-fouls" onClick={resetFouls}>0</div>
                     <p>Team Foul</p>
                     <div className="teamB-fouls" onClick={resetFouls}>0</div>
                 </div>
-                <div class='pivot'>
-                    <div class='bg-circle1'></div>
-                    <div class='bg-circle2'></div>
+                <div id="pivot2" className='pivot' onClick={lightAlarm2}>
+                    <div id="bg-pivot2" className=''></div>
                 </div>
             </div>
-            <div className='d-flex justify-content-center'>
-                <div>
-
+            <div className='timeout-table'>
+                <div className='d-flex flex-column'>
+                    <div>Timeout</div>
+                    <div className='team-timeout'>
+                        <div className='d-flex timeout-col'>
+                            <div className='d-flex flex-column'>
+                                <p>1st</p>
+                                <p>Half</p>
+                            </div>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                        </div>
+                        <div className='d-flex timeout-col'>
+                            <div className='d-flex flex-column'>
+                                <p>2st</p>
+                                <p>Half</p>
+                            </div>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                        </div>
+                        <div className='d-flex timeout-col'>
+                            <div className='d-flex flex-column'>
+                                <p>Extra</p>
+                            </div>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                        </div>
+                    </div>
                 </div>
-                <div className='d-flex team-foul'>
+                <div className='possesion-arrow'>
                     <div className="arrow-left" onClick={changeColorLeft}></div>
                     <div>Possesion Arrow</div>
                     <div className="arrow-right" onClick={changeColorRight}></div>
                 </div>
-                <div>
-
+                <div className='d-flex flex-column'>
+                    <div>Timeout</div>
+                    <div className='team-timeout'>
+                        <div className='d-flex timeout-col'>
+                            <div className='d-flex flex-column'>
+                                <p>1st</p>
+                                <p>Half</p>
+                            </div>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                        </div>
+                        <div className='d-flex timeout-col'>
+                            <div className='d-flex flex-column'>
+                                <p>2st</p>
+                                <p>Half</p>
+                            </div>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                        </div>
+                        <div className='d-flex timeout-col'>
+                            <div className='d-flex flex-column'>
+                                <p>Extra</p>
+                            </div>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                            <input type="checkbox"></input>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="player-score d-flex justify-content-center">
@@ -214,13 +281,13 @@ export default function CountPoints() {
                     })}
                 </div>
                 <div className="players-score">
-                    <p>players</p>
-                    <p>scores</p>
-                    <p>fouls</p>
+                    <p>Players</p>
+                    <p>Scores</p>
+                    <p>Fouls</p>
                 </div>
                 <div className="players-score-B d-flex">
                     {playersB.map((playersB, index) => {
-                        if(playersB === "10" ||playersB === "11" ||playersB === "12"){
+                        if(playersB === 10 ||playersB === 11 ||playersB === 12){
                         return(
                             <div className="player-div" key={index}>
                                 <p>{playersB}</p>

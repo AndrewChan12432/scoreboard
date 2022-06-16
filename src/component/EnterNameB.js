@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 
 export default function EnterNameB(props) {
   const playerRight = ["1","2","3","4","5","6"];
-  const playerLeft = ["7","8","9","10","11","12"]
+  const playerLeft = ["7","8","9","10","11","12"];
+  for(let i = 1; i < 13; i++){
+    localStorage.setItem(`player${i}B`, JSON.stringify(i));
+  }
+    localStorage.setItem('teamA', JSON.stringify("Team A"));
     return (
         <div className="enter-name-A d-flex justify-content-center align-items-center mt-3">
         <div className="text-center label-3">

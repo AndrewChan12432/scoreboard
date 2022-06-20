@@ -161,174 +161,174 @@ export default function CountPoints() {
     }
     
     return (
-        <div className="count-points">
-            <div className="black">
-                    <div className="team-fouls d-flex">
-                        <div className='count_score d-flex'>
-                            <div className="teamA">
-                                <h5>{nameA}</h5>
-                                <div className="pointA">0</div>
+            <div className="count-points">
+                <div className="black">
+                        <div className="team-fouls d-flex">
+                            <div className='count_score d-flex'>
+                                <div className="teamA">
+                                    <h5>{nameA}</h5>
+                                    <div className="pointA">0</div>
+                                </div>
+                            </div>
+                            <Timer />
+                            <div className='count_score d-flex'>
+                                    <div className="teamB">
+                                    <h5>{nameB}</h5>
+                                    <div className="pointB">0</div>
+                                </div>
                             </div>
                         </div>
-                        <Timer />
-                        <div className='count_score d-flex'>
-                                <div className="teamB">
-                                <h5>{nameB}</h5>
-                                <div className="pointB">0</div>
+                </div>
+                <div className="foul-counts d-flex align-items-center">
+                    <div id="pivot1" className='pivot' onClick={lightAlarm1}>
+                        <div id="bg-pivot1" className=''></div>
+                    </div>
+                    <div className='d-flex team-foul'>
+                        <div className="teamA-fouls" onClick={resetFouls}>0</div>
+                        <p>Team Foul</p>
+                        <div className="teamB-fouls" onClick={resetFouls}>0</div>
+                    </div>
+                    <div id="pivot2" className='pivot' onClick={lightAlarm2}>
+                        <div id="bg-pivot2" className=''></div>
+                    </div>
+                </div>
+                <div className='timeout-table'>
+                    <div className='d-flex flex-column'>
+                        <div>Timeout</div>
+                        <div className='team-timeout'>
+                            <div className='d-flex timeout-col'>
+                                <div className='d-flex flex-column'>
+                                    <p>1st</p>
+                                    <p>Half</p>
+                                </div>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
+                            </div>
+                            <div className='d-flex timeout-col'>
+                                <div className='d-flex flex-column'>
+                                    <p>2st</p>
+                                    <p>Half</p>
+                                </div>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
+                            </div>
+                            <div className='d-flex timeout-col'>
+                                <div className='d-flex flex-column'>
+                                    <p>Extra</p>
+                                </div>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
                             </div>
                         </div>
                     </div>
-            </div>
-            <div className="foul-counts d-flex align-items-center">
-                <div id="pivot1" className='pivot' onClick={lightAlarm1}>
-                    <div id="bg-pivot1" className=''></div>
-                </div>
-                <div className='d-flex team-foul'>
-                    <div className="teamA-fouls" onClick={resetFouls}>0</div>
-                    <p>Team Foul</p>
-                    <div className="teamB-fouls" onClick={resetFouls}>0</div>
-                </div>
-                <div id="pivot2" className='pivot' onClick={lightAlarm2}>
-                    <div id="bg-pivot2" className=''></div>
-                </div>
-            </div>
-            <div className='timeout-table'>
-                <div className='d-flex flex-column'>
-                    <div>Timeout</div>
-                    <div className='team-timeout'>
-                        <div className='d-flex timeout-col'>
-                            <div className='d-flex flex-column'>
-                                <p>1st</p>
-                                <p>Half</p>
+                    <div className='possesion-arrow'>
+                        <div className="arrow-left" onClick={changeColorLeft}></div>
+                        <div>Possesion Arrow</div>
+                        <div className="arrow-right" onClick={changeColorRight}></div>
+                    </div>
+                    <div className='d-flex flex-column'>
+                        <div>Timeout</div>
+                        <div className='team-timeout'>
+                            <div className='d-flex timeout-col'>
+                                <div className='d-flex flex-column'>
+                                    <p>1st</p>
+                                    <p>Half</p>
+                                </div>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
                             </div>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                        </div>
-                        <div className='d-flex timeout-col'>
-                            <div className='d-flex flex-column'>
-                                <p>2st</p>
-                                <p>Half</p>
+                            <div className='d-flex timeout-col'>
+                                <div className='d-flex flex-column'>
+                                    <p>2st</p>
+                                    <p>Half</p>
+                                </div>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
                             </div>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                        </div>
-                        <div className='d-flex timeout-col'>
-                            <div className='d-flex flex-column'>
-                                <p>Extra</p>
+                            <div className='d-flex timeout-col'>
+                                <div className='d-flex flex-column'>
+                                    <p>Extra</p>
+                                </div>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
+                                <input type="checkbox"></input>
                             </div>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
                         </div>
                     </div>
                 </div>
-                <div className='possesion-arrow'>
-                    <div className="arrow-left" onClick={changeColorLeft}></div>
-                    <div>Possesion Arrow</div>
-                    <div className="arrow-right" onClick={changeColorRight}></div>
-                </div>
-                <div className='d-flex flex-column'>
-                    <div>Timeout</div>
-                    <div className='team-timeout'>
-                        <div className='d-flex timeout-col'>
-                            <div className='d-flex flex-column'>
-                                <p>1st</p>
-                                <p>Half</p>
-                            </div>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                        </div>
-                        <div className='d-flex timeout-col'>
-                            <div className='d-flex flex-column'>
-                                <p>2st</p>
-                                <p>Half</p>
-                            </div>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                        </div>
-                        <div className='d-flex timeout-col'>
-                            <div className='d-flex flex-column'>
-                                <p>Extra</p>
-                            </div>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                            <input type="checkbox"></input>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="player-score d-flex justify-content-center">
-                <div className="players-score-A d-flex">
-                    {playersA.map((playersA, index) => {
-                        return(
-                            <div className="player-div" key={index}>
-                                <p>{playersA}</p>
-                                <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
-                                <div className="no-display">
-                                    <div className="button-add">
-                                    <button onClick={addScore}>+3</button>
-                                    <button onClick={addScore}>+2</button>
-                                    <button onClick={addScore}>+1</button>
-                                    <button onClick={addScore}>-1</button>
+                <div className="player-score d-flex justify-content-center">
+                    <div className="players-score-A d-flex">
+                        {playersA.map((playersA, index) => {
+                            return(
+                                <div className="player-div" key={index}>
+                                    <p>{playersA}</p>
+                                    <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
+                                    <div className="no-display">
+                                        <div className="button-add">
+                                        <button onClick={addScore}>+3</button>
+                                        <button onClick={addScore}>+2</button>
+                                        <button onClick={addScore}>+1</button>
+                                        <button onClick={addScore}>-1</button>
+                                        </div>
+                                        <div className="bground" onClick={closeBg}></div>
                                     </div>
-                                    <div className="bground" onClick={closeBg}></div>
+                                    <button className="foulBox" id="foulP1" onClick={checkFoul}>0</button>
                                 </div>
-                                <button className="foulBox" id="foulP1" onClick={checkFoul}>0</button>
-                            </div>
-                        )                       
-                    })}
-                </div>
-                <div className="players-score">
-                    <p>Players</p>
-                    <p>Scores</p>
-                    <p>Fouls</p>
-                </div>
-                <div className="players-score-B d-flex">
-                    {playersB.map((playersB, index) => {
-                        if(playersB === 10 ||playersB === 11 ||playersB === 12){
-                        return(
-                            <div className="player-div" key={index}>
-                                <p>{playersB}</p>
-                                <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
-                                <div className="no-display">
-                                    <div className="button-add-special">
-                                    <button onClick={addScore}>+3</button>
-                                    <button onClick={addScore}>+2</button>
-                                    <button onClick={addScore}>+1</button>
-                                    <button onClick={addScore}>-1</button>
-                                    </div>
-                                    <div className="bground" onClick={closeBg}></div>
-                                </div>
-                                <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
-                            </div>
-                        )}else{
-                        return(
-                            <div className="player-div" key={index}>
-                                <p>{playersB}</p>
-                                <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
-                                <div className="no-display">
-                                    <div className="button-add">
-                                    <button onClick={addScore}>+3</button>
-                                    <button onClick={addScore}>+2</button>
-                                    <button onClick={addScore}>+1</button>
-                                    <button onClick={addScore}>-1</button>
-                                    </div>
-                                    <div className="bground" onClick={closeBg}></div>
-                                </div>
-                                <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
-                            </div>
-                        )}                      
+                            )                       
                         })}
+                    </div>
+                    <div className="players-score">
+                        <p>Players</p>
+                        <p>Scores</p>
+                        <p>Fouls</p>
+                    </div>
+                    <div className="players-score-B d-flex">
+                        {playersB.map((playersB, index) => {
+                            if(playersB === 10 ||playersB === 11 ||playersB === 12){
+                            return(
+                                <div className="player-div" key={index}>
+                                    <p>{playersB}</p>
+                                    <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
+                                    <div className="no-display">
+                                        <div className="button-add-special">
+                                        <button onClick={addScore}>+3</button>
+                                        <button onClick={addScore}>+2</button>
+                                        <button onClick={addScore}>+1</button>
+                                        <button onClick={addScore}>-1</button>
+                                        </div>
+                                        <div className="bground" onClick={closeBg}></div>
+                                    </div>
+                                    <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
+                                </div>
+                            )}else{
+                            return(
+                                <div className="player-div" key={index}>
+                                    <p>{playersB}</p>
+                                    <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
+                                    <div className="no-display">
+                                        <div className="button-add">
+                                        <button onClick={addScore}>+3</button>
+                                        <button onClick={addScore}>+2</button>
+                                        <button onClick={addScore}>+1</button>
+                                        <button onClick={addScore}>-1</button>
+                                        </div>
+                                        <div className="bground" onClick={closeBg}></div>
+                                    </div>
+                                    <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
+                                </div>
+                            )}                      
+                            })}
+                    </div>
+                </div>
+                <div className='ads_settings no-display' id="ads">
+                    <div className='bg_opacity' onClick={cancelAds}></div>
+                    <div className='iframe_settins'>
+                        <p>Timeout</p>   
+                    </div>
                 </div>
             </div>
-            <div className='ads_settings no-display' id="ads">
-                <div className='bg_opacity' onClick={cancelAds}></div>
-                <div className='iframe_settins'>
-                    <p>Timeout</p>   
-                </div>
-            </div>
-        </div>
     )
 }

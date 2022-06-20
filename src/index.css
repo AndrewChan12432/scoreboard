@@ -587,7 +587,7 @@ top:25px;
   justify-content: center;
   font-size: 60px;
   padding: 30px 60px;
-  background-color: #900C3F;
+  background-color: #28A751;
   border-radius: 2px;
   margin: 0px;
   max-width: 150px;
@@ -633,11 +633,11 @@ top:25px;
 }
 .timeout-table p {
   font-size: 9px;
-  margin: 0 2px;
+  margin: 0 1px;
 }
 .timeout-table input {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 .team-timeout{
   display: flex;
@@ -668,7 +668,7 @@ top:25px;
 }
 .teamA-fouls{
   padding: 0px 8px; 
-  background-color: #900C3F;
+  background-color: #28A751;
   color: white;
   text-align: center;
   min-width: 24px;
@@ -734,8 +734,8 @@ top:25px;
   color: whitesmoke;
 }
 .players-score-A .team1Score{
-  background-color: #900C3F;
-  border: 1px solid #900C3F;
+  background-color: #28A751;
+  border: 1px solid #28A751;
 }
 .players-score-B .team1Score{
   background-color: #2F7FBF;
@@ -969,7 +969,7 @@ top:25px;
   }
   
   .glow-red {
-    background-color: #900C3F;
+    background-color: #28A751;
     box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
     animation: pulse-red 1s linear 1s infinite;
   }
@@ -1246,11 +1246,20 @@ img{
   border-left: 30px solid ;
   border-bottom: 15px solid transparent;
 }
+.arrow-right:before{
+  width:3px;
+height:3px;
+content:'';
+position:absolute;
+left:0;
+top:10px;
+background-color:#272e38;
+}
 .timeout-table {
-  font-size: 25px;
+  font-size: 15px;
 }
 .timeout-table p {
-  font-size: 15px;
+  font-size: 10px;
   margin-right: 5px;
 }
 .timeout-table input {
@@ -1277,7 +1286,7 @@ img{
   height: 35px;
 }
 .timeoutstyle{
-  font-size: 20px;
+  font-size: 15px;
   margin: 3px;
 }
 .timer_but1{

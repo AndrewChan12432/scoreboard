@@ -31,11 +31,11 @@ function App() {
       <div className="banner">
              <img src={ban5} alt="chinese" />
              <img src={ban2} alt="bina-harapan" />
-             <img src={ban1} alt="vivian" />
+             <img src={ban6} alt="circle" />
              <p>Vivian Wong Open Basketball Friendship Competition</p>
              <img src={ban4} alt="red" />
              <img src={ban3} alt="harimau" />
-             <img src={ban6} alt="circle" />
+             <img src={ban1} alt="vivian" />
       </div>
         <Routes>
           <Route exact path="/" element={<Intro />} />

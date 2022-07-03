@@ -12,31 +12,20 @@ import ban3 from "./pic3.png"
 import ban4 from "./pic4.png"
 import ban5 from "./pic5.png"
 import ban6 from "./pic 6.png"
-// import background from "../public/bgimage";
 
 function App() {
   return (
     <HashRouter>
-      <div className="App" 
-        // style={{
-        //   background: `rgba(0, 0, 0, 0.4) url(${background})`,
-        //   backgroundSize: 'cover',
-        //   width: '100vw',
-        //   height: '100v',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        // }}
-        >
-      <div className="banner">
-             <img src={ban5} alt="chinese" />
-             <img src={ban2} alt="bina-harapan" />
-             <img src={ban6} alt="circle" />
-             <p>Vivian Wong Open Basketball Friendship Competition</p>
-             <img src={ban4} alt="red" />
-             <img src={ban3} alt="harimau" />
-             <img src={ban1} alt="vivian" />
-      </div>
+      <div className="App">
+        <div className="banner">
+            <img src={ban5} alt="chinese" />
+            <img src={ban2} alt="bina-harapan" />
+            <img src={ban6} alt="circle" />
+            <p>Vivian Wong Open Basketball Friendship Competition</p>
+            <img src={ban4} alt="red" />
+            <img src={ban3} alt="harimau" />
+            <img src={ban1} alt="vivian" />
+        </div>
         <Routes>
           <Route exact path="/" element={<Intro />} />
           <Route path="/enter-time" element={<EnterTime />} />
@@ -47,15 +36,14 @@ function App() {
         </Routes>
       </div>
       <div className="alert-portrait">
-      <div className="overlay">
-        <div className="iconContainer">
-          <div className="phone">
-            <i className="fa fa-sync-alt" aria-hidden="true" >
-            </i>
+        <div className="overlay">
+          <div className="iconContainer">
+            <div className="phone">
+              <i className="fa fa-sync-alt" aria-hidden="true" ></i>
+            </div>
           </div>
         </div>
-      </div>
-      <p>Rotate your phone</p>
+        <p>Rotate your phone</p>
       </div>
     </HashRouter>
   );

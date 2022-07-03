@@ -1,61 +1,67 @@
 import React from 'react';
 import Timer from './Timer';
+import Hone from '../buzzerSound.mpeg'
+import ads from '../Ads-image.jpg'
 
 export default function CountPoints() {
     const nameA = JSON.parse(localStorage.getItem('teamA'))
     const nameB = JSON.parse(localStorage.getItem('teamB'))
+    const colorA = JSON.parse(localStorage.getItem('color-teamA'))
+    const colorB = JSON.parse(localStorage.getItem('color-teamB'))
     let playersA = [];
     let playersB = [];
+    let scoreA = 0;
+    let scoreB = 0;
     for(let i = 1; i < 13; i++){
         playersA.push(JSON.parse(localStorage.getItem(`player${i}A`)))
         playersB.push(JSON.parse(localStorage.getItem(`player${i}B`)))
     }
+    // playersA.sort(function(a, b) {
+    //     return a - b;
+    // });
+    // playersB.sort(function(a, b) {
+    //     return a - b;
+    // });
     const cancelAds =()=> {
         document.getElementById("ads").style.display = "none" 
+    }
+    const changeColorLeft = () => {
+        if(document.getElementsByClassName("arrow-left")[0].style.color === "whitesmoke"){
+            document.getElementsByClassName("arrow-left")[0].style.color = "rgba(0,0,0,.6)";
+        }else{
+            document.getElementsByClassName("arrow-left")[0].style.color = "whitesmoke";
+            document.getElementsByClassName("arrow-right")[0].style.color = "rgba(0,0,0,.6)";
         }
-    const changeColorLeft = () =>{
-        document.getElementsByClassName("arrow-left")[0].style.color = "whitesmoke";
-        document.getElementsByClassName("arrow-right")[0].style.color = "rgba(0,0,0,.6)";
     }
     const changeColorRight = () =>{
-        document.getElementsByClassName("arrow-right")[0].style.color = "whitesmoke";
-        document.getElementsByClassName("arrow-left")[0].style.color = "rgba(0,0,0,.6)";
+        if(document.getElementsByClassName("arrow-right")[0].style.color === "whitesmoke"){
+            document.getElementsByClassName("arrow-right")[0].style.color = "rgba(0,0,0,.6)";
+        }else{
+            document.getElementsByClassName("arrow-right")[0].style.color = "whitesmoke";
+            document.getElementsByClassName("arrow-left")[0].style.color = "rgba(0,0,0,.6)";
+        }
     }
     const resetFouls = (e) =>{
-        e.target.innerHTML = 0;
-        e.target.classList.remove("glow-red", "glow-blue", "preglow-red", "preglow-blue")
-    }
-    
+        let getNumber = e.target.innerHTML;
+        getNumber++
+        e.target.innerHTML = getNumber;
+        console.log(e.target.innerHTML, getNumber)
+        if(e.target.innerHTML === "5") {
+            e.target.classList.add("glow-red")
+        }
+        if(e.target.innerHTML > 5){
+            e.target.classList.remove("glow-red", "glow-blue", "preglow-red", "preglow-blue")
+            e.target.innerHTML = 0;
+        }
+    } 
     function checkFoul(e){
     e.target.classList.add("foulColor");
     let getElement = e.target.innerHTML;
     let toNumber = parseInt(getElement);
-    if(e.target.id === "foulP1"){
-       let getId = document.querySelector(".teamA-fouls");
-       let getHtml = getId.innerHTML
-       let getNum = parseInt(getHtml);
-       if(getNum < 5){
-       getNum++;
-       getId.innerHTML = getNum;
-       }
-       if(getNum === 5){
-          getId.classList.add("glow-red")
-       }
-    }else{
-       let getId = document.querySelector(".teamB-fouls");
-       let getHtml = getId.innerHTML
-       let getNum = parseInt(getHtml);
-       if(getNum < 5){
-           getNum++;
-           getId.innerHTML = getNum;
-       }
-       if(getNum === 5) {
-        getId.classList.add("glow-blue")
-       }
-    }
     if(toNumber < 5) {
         toNumber++
         e.target.innerHTML = toNumber;
+        console.log(toNumber)
         }else if(e.target.innerHTML === ""){
         toNumber = 1
         e.target.innerHTML = toNumber;
@@ -63,100 +69,94 @@ export default function CountPoints() {
         toNumber = 0
         e.target.innerHTML = "";
         e.target.classList.remove("foulColor");
+        e.target.classList.remove("glow-red");
+        e.target.classList.remove("foul-out");
         }
-    }
-    function showBtn(e){
-        e.target.nextSibling.classList.add("transform");
-        // document.getElementById("parent").classList.add("fixed") 
-        // e.target.nextSibling.children[1].classList.add("display-it")
-    }
-    function addScore(e) {
-        e.target.parentElement.parentElement.classList.remove("transform");
-        document.getElementById("parent").classList.remove("fixed");
-        // get point A as a number
-        let countPointA = document.querySelector(".pointA");
-        let pointAHtml = countPointA.innerHTML;
-        let pointANum = parseInt(pointAHtml)
-        // get point B as a number
-        let countPointB = document.querySelector(".pointB");
-        let pointBHtml = countPointB.innerHTML;
-        let pointBNum = parseInt(pointBHtml)
-        // get the parents element
-        let findParent = e.target.parentElement.parentElement.parentElement.parentElement
-        let buttonChange = e.target.parentElement.parentElement.parentNode.firstChild.nextSibling
-        let buttonHtml = buttonChange.innerHTML
-        let changeNum = parseInt(buttonHtml)
-            if(e.target.innerHTML === "+3"){
-                changeNum += 3;
-                buttonChange.innerHTML = changeNum
-                if(findParent.classList[0] === "players-score-A"){
-                 pointANum += 3;
-                 countPointA.innerHTML = pointANum 
-                }else{
-                 pointBNum += 3;
-                 countPointB.innerHTML = pointBNum
-                }
-            }else if(e.target.innerHTML === "+2"){
-                changeNum += 2;
-                buttonChange.innerHTML = changeNum
-                if(findParent.classList[0] === "players-score-A"){
-                pointANum += 2;
-                countPointA.innerHTML = pointANum 
-                }else{
-                pointBNum += 2;
-                countPointB.innerHTML = pointBNum
-                }
-            }else if(e.target.innerHTML === "+1"){
-                changeNum += 1;
-                buttonChange.innerHTML = changeNum
-                if(findParent.classList[0] === "players-score-A"){
-                pointANum += 1;
-                countPointA.innerHTML = pointANum 
-                }else{
-                pointBNum += 1;
-                countPointB.innerHTML = pointBNum
-                }
-            }else{
-                if( changeNum > 0){
-                changeNum -= 1;
-                buttonChange.innerHTML = changeNum
-                if(findParent.classList[0] === "players-score-A"){
-                pointANum -= 1;
-                countPointA.innerHTML = pointANum 
-                }else{
-                pointBNum -= 1  ;
-                countPointB.innerHTML = pointBNum
-                }
-                }
-            }
-    }
-    const closeBg = (e) => {
-        e.target.parentElement.classList.remove("transform");
-        document.getElementById("parent").classList.remove("fixed");
+        if(toNumber === 4){
+            e.target.classList.add("glow-red")
+        }
+        if(toNumber === 5){
+            e.target.classList.add("foul-out")
+        }
     }
     window.onbeforeunload = function () {
         return 'Are you sure? Your work will be lost. ';
-    };
+    }; 
+    window.addEventListener('keydown', e => {
+        if(e.key === " ") {
+            document.getElementById("faul").click();
+        }
+        if(e.key === "h" || e.key === "H"){
+            document.getElementById("myHone").play();
+        }
+        if(e.key === "1") {
+            document.getElementById("24s").click();
+        }
+        if(e.key === "2") {
+            document.getElementById("14s").click();
+        }
+        if(e.key === "3") {
+            document.getElementById("00s").click();
+        }
+        if(e.key === "[") {
+            document.querySelector(".arrow-left").click();
+        }
+        if(e.key === "]") {
+            document.querySelector(".arrow-right").click();
+        }
+        if(e.key === "o" || e.key === "O") {
+            lightAlarm1()
+        }
+        if(e.key === "p" || e.key === "P") {
+            lightAlarm2()
+        }
+        if(e.key === "ArrowUp") {
+            document.querySelector("#plusSec").click();
+        }
+        if(e.key === "ArrowDown" || e.key === "-") {
+            document.querySelector("#minusSec").click();
+        }
+        if(e.key === ";") { //teamA add score
+            scoreA++;
+            document.querySelector(".pointA").innerHTML = scoreA;
+        }
+        if(e.key === ".") { //teamA minus score
+            if(scoreA > 0){
+                scoreA--;
+                document.querySelector(".pointA").innerHTML = scoreA;
+            }
+        }
+        if(e.key === "'") { //teamB add score
+            scoreB++;
+            document.querySelector(".pointB").innerHTML = scoreB;
+        }
+        if(e.key === "/") { //teamB minus score
+            if(scoreB > 0){
+                scoreB--;
+                document.querySelector(".pointB").innerHTML = scoreB;
+            }
+        }  
+    })
     const lightAlarm1 = () =>{
-        let pivot1 = document.getElementById("pivot1")
+        let flagAlarm1 = document.getElementById("flag-alarm1")
         let bgPivot1 = document.getElementById("bg-pivot1")
-        if(pivot1.classList.contains("turn-red")){
-            pivot1.classList.remove("turn-red");
-            bgPivot1.classList.remove("bg-circle1")
+        if(bgPivot1.classList.contains("bg-circle")){
+            flagAlarm1.classList.remove("turn-red");
+            bgPivot1.classList.remove("bg-circle")
         }else{
-            pivot1.classList.add("turn-red");
-            bgPivot1.classList.add("bg-circle1")
+            flagAlarm1.classList.add("turn-red");
+            bgPivot1.classList.add("bg-circle")
         }
     }
     const lightAlarm2 = () =>{
-        let pivot2 = document.getElementById("pivot2")
+        let flagAlarm2 = document.getElementById("flag-alarm2")
         let bgPivot2 = document.getElementById("bg-pivot2")
-        if(pivot2.classList.contains("turn-red")){
-            pivot2.classList.remove("turn-red");
-            bgPivot2.classList.remove("bg-circle1")
+        if(bgPivot2.classList.contains("bg-circle")){
+            flagAlarm2.classList.remove("turn-red");
+            bgPivot2.classList.remove("bg-circle")
         }else{
-            pivot2.classList.add("turn-red");
-            bgPivot2.classList.add("bg-circle1")
+            flagAlarm2.classList.add("turn-red");
+            bgPivot2.classList.add("bg-circle")
         }
     }
     
@@ -167,28 +167,32 @@ export default function CountPoints() {
                             <div className='count_score d-flex'>
                                 <div className="teamA">
                                     <h5>{nameA}</h5>
-                                    <div className="pointA">0</div>
+                                    <div className="pointA" style={{backgroundColor: colorA}}>0</div>
                                 </div>
                             </div>
                             <Timer />
                             <div className='count_score d-flex'>
                                     <div className="teamB">
                                     <h5>{nameB}</h5>
-                                    <div className="pointB">0</div>
+                                    <div className="pointB" style={{backgroundColor: colorB}}>0</div>
                                 </div>
                             </div>
                         </div>
                 </div>
                 <div className="foul-counts d-flex align-items-center">
-                    <div id="pivot1" className='pivot' onClick={lightAlarm1}>
+                    <div className='contain-flag' onClick={lightAlarm1}>
+                        <div className='pole'></div>
+                        <div id="flag-alarm1"className='flag-2'></div>
                         <div id="bg-pivot1" className=''></div>
                     </div>
                     <div className='d-flex team-foul'>
-                        <div className="teamA-fouls" onClick={resetFouls}>0</div>
+                        <div className="teamA-fouls" style={{backgroundColor: colorA}} onClick={resetFouls}>0</div>
                         <p>Team Foul</p>
-                        <div className="teamB-fouls" onClick={resetFouls}>0</div>
+                        <div className="teamB-fouls" style={{backgroundColor: colorB}} onClick={resetFouls}>0</div>
                     </div>
-                    <div id="pivot2" className='pivot' onClick={lightAlarm2}>
+                    <div className='contain-flag' onClick={lightAlarm2}>
+                        <div className='pole'></div>
+                        <div id="flag-alarm2"className='flag-2'></div>
                         <div id="bg-pivot2" className=''></div>
                     </div>
                 </div>
@@ -265,7 +269,7 @@ export default function CountPoints() {
                             return(
                                 <div className="player-div" key={index}>
                                     <p>{playersA}</p>
-                                    <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
+                                    {/* <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
                                     <div className="no-display">
                                         <div className="button-add">
                                         <button onClick={addScore}>+3</button>
@@ -274,15 +278,14 @@ export default function CountPoints() {
                                         <button onClick={addScore}>-1</button>
                                         </div>
                                         <div className="bground" onClick={closeBg}></div>
-                                    </div>
-                                    <button className="foulBox" id="foulP1" onClick={checkFoul}>0</button>
+                                    </div> */}
+                                    <div className="foulBox" id="foulP1" onClick={checkFoul}>0</div>
                                 </div>
                             )                       
                         })}
                     </div>
                     <div className="players-score">
                         <p>Players</p>
-                        <p>Scores</p>
                         <p>Fouls</p>
                     </div>
                     <div className="players-score-B d-flex">
@@ -291,7 +294,7 @@ export default function CountPoints() {
                             return(
                                 <div className="player-div" key={index}>
                                     <p>{playersB}</p>
-                                    <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
+                                    {/* <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
                                     <div className="no-display">
                                         <div className="button-add-special">
                                         <button onClick={addScore}>+3</button>
@@ -300,14 +303,14 @@ export default function CountPoints() {
                                         <button onClick={addScore}>-1</button>
                                         </div>
                                         <div className="bground" onClick={closeBg}></div>
-                                    </div>
-                                    <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
+                                    </div> */}
+                                    <div className="foulBox" id="foulP2" onClick={checkFoul}>0</div>
                                 </div>
                             )}else{
                             return(
                                 <div className="player-div" key={index}>
                                     <p>{playersB}</p>
-                                    <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
+                                    {/* <button className="team1Score" id="player1Score" onClick={showBtn}>0</button>
                                     <div className="no-display">
                                         <div className="button-add">
                                         <button onClick={addScore}>+3</button>
@@ -316,17 +319,26 @@ export default function CountPoints() {
                                         <button onClick={addScore}>-1</button>
                                         </div>
                                         <div className="bground" onClick={closeBg}></div>
-                                    </div>
-                                    <button className="foulBox" id="foulP2" onClick={checkFoul}>0</button>
+                                    </div> */}
+                                    <div className="foulBox" id="foulP2" onClick={checkFoul}>0</div>
                                 </div>
                             )}                      
                             })}
                     </div>
                 </div>
+                <div className='ads-copyright'>
+                    <p>This app is developed by Josdrew Studio</p>
+                </div>
+                <audio id="myHone">
+                    <source src={Hone} type="audio/mpeg" />
+                </audio>
                 <div className='ads_settings no-display' id="ads">
                     <div className='bg_opacity' onClick={cancelAds}></div>
-                    <div className='iframe_settins'>
-                        <p>Timeout</p>   
+                    <p>This app is developed by Josdrew Studio</p>
+                    <div className='d-flex flex-column' onClick={cancelAds} >
+                        <div className='black-background'></div>
+                        <div id="timer" className='timer-settings'>60</div>
+                        <img src={ads} alt="ads"></img>
                     </div>
                 </div>
             </div>

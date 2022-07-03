@@ -46,6 +46,10 @@ a:hover {
   font-size: 15px;
   animation: fade-in 1s ;
 }
+.color-picker {
+  width: 50px;
+  height: 50px;
+}
 
 /* .intro, .enter-time, .enter-name-A, .enter-name-B, .page-not-found {
   height: 100vh;
@@ -95,6 +99,7 @@ a:hover {
   border-radius: 1px;
   color: white;
   flex: 1;
+  font-weight: 900;
 }
 .position_timer {
   padding : 5px;
@@ -142,7 +147,6 @@ a:hover {
   height: 20px;
   border-radius: 1px;
   background: #dddddd;
-  margin-right: 5px;
   color: #272e38;
   cursor: pointer;
 }
@@ -202,6 +206,7 @@ border-color: white;
 .digits_1{
   background: #dddddd;
   padding: 5px;
+  margin: 0 5px;
   flex: 1;
 }
 
@@ -598,7 +603,7 @@ top:25px;
   justify-content: center;
   font-size: 60px;
   padding: 30px 60px;
-  background-color: #28A751;
+  background-color: #8B008C;
   border-radius: 2px;
   margin: 0px;
   max-width: 150px;
@@ -608,7 +613,7 @@ top:25px;
   justify-content: center;
   font-size: 60px;
   padding: 30px 60px;
-  background-color: #2F7FBF;
+  background-color: #29B9E2;
   border-radius: 2px;
   margin: 0px;
   max-width: 150px;
@@ -626,6 +631,7 @@ top:25px;
 } */
 .team-fouls{
   justify-content: space-evenly;
+  align-items: center;
 }
 .team-foul{
   justify-content: space-between;
@@ -633,7 +639,7 @@ top:25px;
   height: 30px;
 }
 .timeout-col {
-  padding: 2px 5px;
+  padding: 0px 5px;
   background-color: #fafafa;
   align-items: center;
 }
@@ -641,9 +647,10 @@ top:25px;
   display: flex;
   justify-content: space-evenly;
   margin-top: 5px;
+  font-size: 10px;
 }
 .timeout-table p {
-  font-size: 9px;
+  font-size: 7px;
   margin: 0 1px;
 }
 .timeout-table input {
@@ -653,7 +660,7 @@ top:25px;
 .team-timeout{
   display: flex;
   color: #000;
-  padding: 5px;
+  padding: 2px;
   background-color: #fafafa;
   border-radius: 5px;
 }
@@ -666,6 +673,7 @@ top:25px;
 }
 .arrow-left{
   cursor: pointer;
+  color: rgba(0,0,0,.6);
   border-top: 10px solid transparent;
   border-right: 20px solid ;
   border-bottom: 10px solid transparent;
@@ -679,7 +687,7 @@ top:25px;
 }
 .teamA-fouls{
   padding: 0px 8px; 
-  background-color: #28A751;
+  background-color: #8B008C;
   color: white;
   text-align: center;
   min-width: 24px;
@@ -687,7 +695,7 @@ top:25px;
 }
 .teamB-fouls{
   padding: 0px 8px;
-  background-color: #2F7FBF;
+  background-color: #29B9E2;
   color: white;
   text-align: center;
   min-width: 24px;
@@ -708,6 +716,7 @@ top:25px;
   flex-direction: column;
   text-align: center;
   margin: 0 2px;
+  color: #000;
 }
 .player-div p{
   display: flex;
@@ -717,15 +726,15 @@ top:25px;
   width: 22px;
   margin: 0;
   padding: 0;
-  color: #000;
   background-color: whitesmoke;
 }
 .foulBox{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black !important;
-  border: 1px solid black !important;
+  cursor: pointer;
+  background-color: black;
+  border: 1px solid black;
   height: 22px;
   width:  22px;
 }
@@ -745,12 +754,12 @@ top:25px;
   color: whitesmoke;
 }
 .players-score-A .team1Score{
-  background-color: #28A751;
-  border: 1px solid #28A751;
+  background-color: #8B008C;
+  border: 1px solid #8B008C;
 }
 .players-score-B .team1Score{
-  background-color: #2F7FBF;
-  border: 1px solid #2F7FBF;
+  background-color: #29B9E2;
+  border: 1px solid #29B9E2;
 }
 
 .player-score{
@@ -768,14 +777,19 @@ top:25px;
 }
 .foulColor{
   color: black;
-  background: #ffbd59 !important;
-  border: 1px solid #ffbd59 !important;
+  background: #ffbd59;
+  border: 1px solid #ffbd59;
+}
+.foul-out{
+  color: white !important;
+  border: 1px solid #d21404;
+  background: #ff5757;
 }
 .players-score p:nth-child(1){
   background-color: whitesmoke;
 }
 .players-score p:nth-child(2){
-  background-color: #7ed957;
+  background-color: #ffbd59;
 }
 .players-score p:nth-child(3){
   background-color: #ffbd59;
@@ -818,20 +832,47 @@ top:25px;
     top: 0%;
     width: 100vw;
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
     display: none;
+    flex-direction: column;
     z-index:100;
   }
-  .ads_settings iframe{
-    position: relative;
+  .ads_settings p{
+    position: absolute;
+    top: 0;
+    z-index:1000;
   }
+  .black-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    z-index: 250;
+  }
+  .ads_settings img{
+    width: 100vw;
+    height: 90vh;
+    z-index:200;
+  }
+  .timer-settings {
+    position: absolute;
+    font-size: 100px;
+    z-index: 300;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   .bg_opacity{
     width: 100vw;
     height: 100vh;
-    background-color: black;
-    opacity: 0.9;
+    background-color: rgba(0,0,0,0.9);
     position: fixed;
     animation-name: fade-in;
     animation-duration: 1s;
@@ -845,20 +886,62 @@ top:25px;
     /* left: calc(50% - 15px);
     top: calc(50% - 15px); */
   }
-  .turn-red{
-    background-color: rgba(255,0,0,0.8);
+  /* flag pole */
+  .contain-flag {
+    position: relative;
+    transform: translateX(-10px);
   }
   
-  .bg-circle1 {
-    width:30px;
-    height:30px;
+  .pole {
+    background-color: rgba(128,128,128, 0.3);
+    border: 1px solid #636262;
+    border-radius: 10px;
+    width: 3px;
+    height: 50px;
+  }
+  
+
+  .pole:before {
+    position: absolute;
+    top: 0px;
+    left: -2px;
+    display: block;
+    background-color: rgba(128,128,128, 0.5);
+    border-radius: 50%;
+    border: 1px solid #636262;
+    width: 7px;
+    height: 7px;
+    content:'';
+  }
+  
+
+  .flag-2 {
+    position: absolute; 
+    top: 6px;
+    z-index: 10;
+    background-color: rgba(128,128,128, 0.5);
+    width: 25px;
+    height: 15px;
+    
+  }
+
+  .turn-red{
+    background-color: #eb573b;
+  }
+  
+  .bg-circle {
+    width: 45px;
+    height: 45px;
     background-color: rgba(255,0,0,0.5);
     border-radius: 50%;
+    top: -2px;
+    left: -2px;
     position: absolute;
     z-index: 0;
-  }
+}
+
   
-  .bg-circle1 {
+  .bg-circle {
     animation: bgScaleAnimation 1s ease-out infinite, bgFadeAnimation 1s ease-in infinite;
     animation-delay: 0.1s;
   }
@@ -974,15 +1057,14 @@ top:25px;
   }
 
   @keyframes pulse-red {
-    0% { box-shadow:0 0 8px #ea4c89, inset 0 0 8px #ea4c89; }
-    50% { box-shadow:0 0 16px #ea4c89, inset 0 0 14px #ea4c89; }
-    100% { box-shadow:0 0 8px #ea4c89, inset 0 0 8px #ea4c89; }
+    0% { box-shadow:0 0 8px #d21404, inset 0 0 8px #d21404; }
+    50% { box-shadow:0 0 30px #d21404, inset 0 0 30px #d21404; }
+    100% { box-shadow:0 0 8px #d21404, inset 0 0 8px #d21404; }
   }
   
   .glow-red {
-    background-color: #28A751;
-    box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
-    animation: pulse-red 1s linear 1s infinite;
+    box-shadow: 0 0 8px #420c09, inset 0 0 8px #420c09;
+    animation: pulse-red 0.5s linear -0.5s infinite;
   }
   .preglow-red {
     box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
@@ -995,7 +1077,7 @@ top:25px;
   }
   
   .glow-blue {
-    background-color: #2F7FBF;
+    background-color: #29B9E2;
     box-shadow: 0 0 8px #ea4c89, inset 0 0 8px #ea4c89;
     animation: pulse-blue 1s linear 1s infinite;
   }
@@ -1005,7 +1087,7 @@ top:25px;
   }
   @keyframes fade-in {
     0% {opacity: 0;}
-    100% { opacity: 0.9;}
+    100% { opacity: 1;}
   }
   @keyframes scroll-down {
     0% {transform: b;}
@@ -1083,7 +1165,7 @@ margin: 5px;
 #clock .digits .d4,
 #clock_1 .digits_1 .d4{			width:6px;height:20px;top:5px;left:1px;}
 #clock .digits .d4:before,
-#clock_1 .digits_1 .d4:before{	border-width:0 6px 4px 0;border-bottom-color:inherit;top:-3px;}
+#clock_1 .digits_1 .d4:before{	border-width:0 6px 3px 0;border-bottom-color:inherit;top:-3px;}
 #clock .digits .d4:after,
 #clock_1 .digits_1 .d4:after{	border-width:0 0 3px 6px;border-left-color:inherit;bottom:-3px;}
 
@@ -1094,7 +1176,7 @@ margin: 5px;
 #clock .digits .d5,
 #clock_1 .digits_1 .d5{			width:6px;height:20px;top:5px;right:-1px;}
 #clock .digits .d5:before,
-#clock_1 .digits_1 .d5:before{	border-width:0 0 4px 6px;border-bottom-color:inherit;top:-3px;}
+#clock_1 .digits_1 .d5:before{	border-width:0 0 3px 6px;border-bottom-color:inherit;top:-3px;}
 #clock .digits .d5:after,
 #clock_1 .digits_1 .d5:after{	border-width:3px 0 0 6px;border-top-color:inherit;bottom:-3px;}
 
@@ -1149,9 +1231,12 @@ top: 30px;
   text-align: center;
   width: 100%;
   background-color: #000;
-  font-size: 30px;
+  font-size: 35px;
   border-bottom:#dbe4e6 solid 1px;
 
+}
+.ads-copyright {
+  text-align: center;
 }
 .banner p{
    margin: 15px 0;
@@ -1181,6 +1266,7 @@ img{
 .foulBox{
   width: 45px;
   height: 45px;
+  color: black;
 }
 .player-score p{
   padding: 3px 15px;
@@ -1208,8 +1294,8 @@ img{
   justify-content: center;
   align-items: center;
   padding: 0px;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
 
 }
 .teamB-fouls {
@@ -1217,8 +1303,8 @@ img{
   justify-content: center;
   align-items: center;
   padding: 0px;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
 }
 .count_score {
   width: 270px;
@@ -1269,13 +1355,20 @@ background-color:#272e38;
 .timeout-table {
   font-size: 15px;
 }
+.team-timeout{
+  padding: 5px;
+}
 .timeout-table p {
   font-size: 10px;
   margin-right: 5px;
 }
 .timeout-table input {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+}
+.flag-2 {
+  width: 40px;
+  height: 25px;
 }
 .position_quater {
   width: 260px;
@@ -1298,17 +1391,27 @@ background-color:#272e38;
 }
 .timeoutstyle{
   font-size: 15px;
-  margin: 3px;
+  margin: 10px 5px;
 }
 .timer_but1{
   font-size: 20px;
   padding: 0;
   margin: 5px 0px;
+  flex: 1;
+}
+.buzzer-but {
+  font-size: 20px;
+  padding: 0;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+  background: #dbe4e6;
 }
 .team-fouls{
   margin-top: 10px;
 }
 .team-foul{
+  align-items: center;
   width: 270px;
   height: 30px;
 }
